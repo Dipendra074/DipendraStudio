@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of a UI/UX Product Designer - Creating premium digital experiences">
+    <title>Dipendra Singh | UI/UX Product Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Lenis requires html to not clip the scroll wrapper */
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Grid Overlay -->
+    <div class="grid-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand ml11">
+            <span class="text-wrapper">
+                <span class="line line1"></span>
+                <span class="letters">Dipendra Singh</span>
+            </span>
+        </div>
+        <div class="nav-links">
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#resume" class="nav-link">Resume</a>
+            <a href="#tools" class="nav-link">Tools</a>
+            <a href="about.html" class="nav-link">About Me</a>
+            <a href="#contact" class="nav-cta">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="hero">
+        <!-- Background Typography -->
+        <div class="bg-typography">
+            <span class="bg-name-left">Dipendra</span>
+            <span class="bg-name-right">Singh</span>
+        </div>
+
+        <!-- Side Text Elements -->
+        <div class="side-text side-text-left">
+            <span class="accent">HELLO,</span> I'M Dipendra
+        </div>
+        <div class="side-text side-text-right">
+            I STARTED AT AGE 16
+        </div>
+
+        <!-- Interactive ID Card -->
+        <div class="card-container">
+            <div id="cardWrapper" class="card-wrapper">
+                <div class="card-lanyard"></div>
+                <div class="id-card" id="idCard">
+                    <!-- Light Overlay for dynamic reflection -->
+                    <div class="card-light-overlay"></div>
+
+                    <!-- Snake Border SVG -->
+                    <svg class="snake-border" viewBox="0 0 100% 100%" xmlns="http://www.w3.org/2000/svg">
+                        <rect class="snake-border-rect" x="0" y="0" width="100%" height="100%" rx="24" ry="24"
+                            pathLength="100" />
+                    </svg>
+
+
+                    <div class="card-top-accent"></div>
+                    <div class="card-badge">PORTFOLIO</div>
+                    <div class="card-image-wrapper">
+                        <img src="portrait.webp" alt="Portrait" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-role-label">Editor & Creative Engineer</span>
+                        <h1 class="card-title">Dipendra</h1>
+                        <h1 class="card-title">Singh</h1>
+                        <p class="card-tagline">©2026 · SKILLS NOT REPLACED BY AI (YET)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Indicator -->
+        <div class="page-indicator">
+            <span class="indicator-number">01</span>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+
+
+    </main>
+
+    <!-- ========================================
+         Projects Section
+    ======================================== -->
+    <section id="projects" class="section projects-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label-tag">SELECTED WORK</span>
+                <h2 class="section-heading">Projects</h2>
+                <p class="section-description">A curated collection of my work across graphic design, photography, and
+                    video editing.</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs reveal">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="graphic-design">Graphic Design</button>
+                <button class="filter-tab" data-filter="photography">Photography</button>
+                <button class="filter-tab" data-filter="video">Video Editing</button>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="project-grid">
+                <!-- Graphic Design Projects -->
+                <div class="project-card reveal" data-category="graphic-design">
+                    <div class="project-thumbnail placeholder-gradient-1">
+                        <img src="Images/designing/grey_porsche_poster1.webp" alt="Event Poster" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Graphic Design</span>
+                        <h3 class="project-title">Event Poster Design</h3>
+                        <p class="project-desc">Bold typography meets vibrant visuals for a music festival campaign.</p>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="graphic-design">
+                    <div class="project-thumbnail placeholder-gradient-2">
+                        <img src="Images/designing/the_g_wagon_pink2.webp" alt="Restaurant Menu" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Graphic Design</span>
+                        <h3 class="project-title">Restaurant Menu</h3>
+                        <p class="project-desc">Elegant menu design for a premium dining experience.</p>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="graphic-design">
+                    <div class="project-thumbnail placeholder-gradient-3">
+                        <img src="Images/designing/the_martian4.webp" alt="Brand Identity" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Graphic Design</span>
+                        <h3 class="project-title">Brand Identity</h3>
+                        <p class="project-desc">Complete visual identity system for a modern tech startup.</p>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="graphic-design">
+                    <div class="project-thumbnail placeholder-gradient-3">
+                        <img src="Images/designing/yellow_porsche3.webp" alt="Brand Identity" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Graphic Design</span>
+                        <h3 class="project-title">Brand Identity</h3>
+                        <p class="project-desc">Complete visual identity system for a modern tech startup.</p>
+                    </div>
+                </div>
+
+                <!-- Photography Projects -->
+                <div class="project-card reveal" data-category="photography">
+                    <div class="project-thumbnail placeholder-gradient-4">
+                        <img src="Images/photography/p_golden_hour.webp" alt="Landscape" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Photography</span>
+                        <h3 class="project-title">Golden Hour Landscapes</h3>
+                        <p class="project-desc">Capturing nature's beauty during the magic hours.</p>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="photography">
+                    <div class="project-thumbnail placeholder-gradient-5">
+                        <img src="Images/photography/p_portrait_series.webp" alt="Portrait" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Photography</span>
+                        <h3 class="project-title">Portrait Series</h3>
+                        <p class="project-desc">Cinematic portrait photography with dramatic lighting.</p>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" data-category="photography">
+                    <div class="project-thumbnail placeholder-gradient-6">
+                        <img src="Images/photography/p_urban_stories.webp" alt="Street" loading="lazy">
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Photography</span>
+                        <h3 class="project-title">Urban Stories</h3>
+                        <p class="project-desc">Street photography exploring city life and culture.</p>
+                    </div>
+                </div>
+
+                <!-- Video Editing Projects (Thumbnail + Click-to-Play) -->
+                <div class="project-card video-card reveal" data-category="video" data-video-id="dQw4w9WgXcQ">
+                    <div class="project-thumbnail placeholder-gradient-7">
+                        <!-- Replace with your video thumbnail -->
+                        <!-- <img src="your-video-thumb-1.webp" alt="Wedding Film" loading="lazy"> -->
+                        <div class="play-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M8 5V19L19 12L8 5Z" fill="currentColor" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Video Editing</span>
+                        <h3 class="project-title">Wedding Film</h3>
+                        <p class="project-desc">Cinematic wedding film with emotional storytelling.</p>
+                    </div>
+                </div>
+
+                <div class="project-card video-card reveal" data-category="video" data-video-id="dQw4w9WgXcQ">
+                    <div class="project-thumbnail placeholder-gradient-8">
+                        <!-- Replace with your video thumbnail -->
+                        <!-- <img src="your-video-thumb-2.webp" alt="Brand Commercial" loading="lazy"> -->
+                        <div class="play-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M8 5V19L19 12L8 5Z" fill="currentColor" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Video Editing</span>
+                        <h3 class="project-title">Brand Commercial</h3>
+                        <p class="project-desc">High-energy commercial for a lifestyle brand.</p>
+                    </div>
+                </div>
+
+                <div class="project-card video-card reveal" data-category="video" data-video-id="dQw4w9WgXcQ">
+                    <div class="project-thumbnail placeholder-gradient-9">
+                        <!-- Replace with your video thumbnail -->
+                        <!-- <img src="your-video-thumb-3.webp" alt="Music Video" loading="lazy"> -->
+                        <div class="play-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M8 5V19L19 12L8 5Z" fill="currentColor" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-overlay">
+                        <span class="project-category">Video Editing</span>
+                        <h3 class="project-title">Music Video</h3>
+                        <p class="project-desc">Dynamic music video with motion graphics and color grading.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Video Modal (for embedded playback)
+    ======================================== -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" id="videoModalClose">&times;</button>
+            <div class="video-modal-player" id="videoModalPlayer"></div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         Floating Tools Section
+    ======================================== -->
+    <section id="tools" class="section tools-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label-tag tools-label">MY TOOLKIT</span>
+                <h2 class="section-heading tools-heading">Tools I Work With</h2>
+                <p class="section-description tools-description">The creative and AI-powered tools I use daily to bring
+                    ideas to life.</p>
+            </div>
+        </div>
+        <div id="floatingToolsCanvas" class="floating-tools-canvas"></div>
+    </section>
+
+    <!-- ========================================
+         Resume Section
+    ======================================== -->
+    <section id="resume" class="section resume-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label-tag">BACKGROUND</span>
+                <h2 class="section-heading">Resume</h2>
+            </div>
+
+            <div class="resume-grid">
+                <!-- Experience Column -->
+                <div class="resume-column reveal">
+                    <h3 class="resume-column-title">Experience</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-date">2024 — Present</span>
+                            <h4 class="timeline-role">Freelance Editor & Designer</h4>
+                            <p class="timeline-desc">Creating visual content for clients including video editing, poster
+                                design, and brand identity work.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2023 — 2024</span>
+                            <h4 class="timeline-role">Creative Engineer</h4>
+                            <p class="timeline-desc">Produced motion graphics and edited promotional videos for local
+                                businesses.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2022 — 2023</span>
+                            <h4 class="timeline-role">Self-taught Designer</h4>
+                            <p class="timeline-desc">Started learning graphic design and video editing at age 16,
+                                building skills through personal projects.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Skills Column -->
+                <div class="resume-column reveal">
+                    <h3 class="resume-column-title">Tools & Software</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <span class="tool-name">Adobe Premiere Pro</span>
+                            <div class="tool-bar">
+                                <div class="tool-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">After Effects</span>
+                            <div class="tool-bar">
+                                <div class="tool-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Adobe Photoshop</span>
+                            <div class="tool-bar">
+                                <div class="tool-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Adobe Illustrator</span>
+                            <div class="tool-bar">
+                                <div class="tool-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Figma</span>
+                            <div class="tool-bar">
+                                <div class="tool-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">DaVinci Resolve</span>
+                            <div class="tool-bar">
+                                <div class="tool-fill" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">Lightroom</span>
+                            <div class="tool-bar">
+                                <div class="tool-fill" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="tool-item">
+                            <span class="tool-name">HTML / CSS / JS</span>
+                            <div class="tool-bar">
+                                <div class="tool-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Contact Section
+    ======================================== -->
+    <section id="contact" class="section contact-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label-tag">GET IN TOUCH</span>
+                <h2 class="section-heading">Let's Work Together</h2>
+                <p class="section-description">Have a project in mind? I'd love to hear about it. Drop me a message and
+                    let's create something amazing.</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <form class="contact-form reveal" id="contactForm" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="contactName">Your Name</label>
+                        <input type="text" id="contactName" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Your Email</label>
+                        <input type="email" id="contactEmail" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Your Message</label>
+                        <textarea id="contactMessage" name="message" rows="5"
+                            placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        Send Message
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Contact Info -->
+                <div class="contact-info reveal">
+                    <div class="contact-detail">
+                        <h4>Email</h4>
+                        <a href="mailto:hello@dipendrasingh.com">hello@dipendrasingh.com</a>
+                    </div>
+                    <div class="contact-detail">
+                        <h4>Location</h4>
+                        <p>India</p>
+                    </div>
+                    <div class="contact-socials">
+                        <h4>Follow Me</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Instagram" target="_blank">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor"
+                                        stroke-width="2" />
+                                    <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+                                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube" target="_blank">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z"
+                                        stroke="currentColor" stroke-width="2" />
+                                    <path d="M9.75 15.02l5.75-3.27-5.75-3.27v6.54z" fill="currentColor" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn" target="_blank">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"
+                                        stroke="currentColor" stroke-width="2" />
+                                    <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" />
+                                    <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter/X" target="_blank">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M4 4l6.5 8L4 20h2l5.5-6.8L16 20h4l-7-8.5L19.5 4h-2l-5 6.2L8 4H4z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Footer
+    ======================================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="footer-brand">Dipendra Singh</span>
+            <span class="footer-copy">© 2026 · All rights reserved</span>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </button>
+
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+    <script src="floating-tools.js"></script>
+</body>
+
+</html>

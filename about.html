@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Dipendra Singh - UI/UX Product Designer, Editor & Creative Engineer">
+    <title>About Me | Dipendra Singh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* About page specific styles - extends base design system */
+
+        /* Remove fixed viewport height constraint for long scrolling */
+        .about-page {
+            min-height: 100vh;
+            padding-top: calc(var(--nav-height) + 60px);
+            padding-bottom: 80px;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        .about-header {
+            margin-bottom: 60px;
+        }
+
+        .about-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .about-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .about-intro {
+            font-size: 1.25rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 700px;
+        }
+
+        .about-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 1em;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Skills grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .skill-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .skill-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .skill-category {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Back to home link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            transition: color 0.3s var(--transition-smooth);
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .about-page {
+                padding-top: calc(var(--nav-height) + 40px);
+            }
+
+            .about-header {
+                margin-bottom: 40px;
+            }
+
+            .about-section {
+                margin-bottom: 40px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Grid Overlay -->
+    <div class="grid-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand ml11" style="display:inline-block; text-decoration: none;">
+            <span class="text-wrapper">
+                <span class="line line1"></span>
+                <span class="letters">Dipendra Singh</span>
+            </span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="index.html#resume" class="nav-link">Resume</a>
+            <a href="about.html" class="nav-link" style="color: var(--text-light);">About Me</a>
+            <a href="index.html#contact" class="nav-cta">Contact</a>
+        </div>
+    </nav>
+
+    <!-- About Page Content -->
+    <main class="about-page">
+        <div class="about-container">
+
+            <!-- Back link -->
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Header -->
+            <header class="about-header">
+                <span class="about-label">About Me</span>
+                <h1 class="about-title">Editor & Creative Engineer</h1>
+                <p class="about-intro">
+                    I'm Dipendra Singh, a passionate creator who started this journey at age 16.
+                    I blend technical expertise with creative vision to craft compelling digital experiences.
+                </p>
+            </header>
+
+            <!-- Story Section -->
+            <section class="about-section">
+                <h2 class="section-title">My Story</h2>
+                <div class="about-content">
+                    <p>
+                        My journey into the world of design and development began with a simple curiosity about how
+                        things work.
+                        What started as experimenting with video editing quickly evolved into a full-fledged passion for
+                        creating
+                        <span class="highlight">immersive digital experiences</span>.
+                    </p>
+                    <p>
+                        Over the years, I've honed my skills across multiple disciplines—from UI/UX design to video
+                        production,
+                        from motion graphics to web development. This multidisciplinary approach allows me to see
+                        projects from
+                        unique perspectives and deliver solutions that truly stand out.
+                    </p>
+                    <p>
+                        Today, I focus on crafting premium digital products that not only look beautiful but also solve
+                        real
+                        problems. Every project is an opportunity to push boundaries and create something meaningful.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Philosophy Section -->
+            <section class="about-section">
+                <h2 class="section-title">Design Philosophy</h2>
+                <div class="about-content">
+                    <p>
+                        I believe that great design is <span class="highlight">invisible</span>. It guides users
+                        naturally,
+                        anticipates their needs, and creates moments of delight without demanding attention. My work is
+                        driven
+                        by the principle that form and function should exist in perfect harmony.
+                    </p>
+                    <p>
+                        Whether it's a sleek user interface or an engaging video production, I approach every project
+                        with the
+                        same commitment to excellence. Details matter—from the subtle animation that makes an
+                        interaction feel
+                        alive to the typography choices that enhance readability and brand personality.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="about-section">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-name">UI/UX Design</div>
+                        <div class="skill-category">Design</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Video Editing</div>
+                        <div class="skill-category">Production</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Motion Graphics</div>
+                        <div class="skill-category">Animation</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Web Development</div>
+                        <div class="skill-category">Development</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Brand Identity</div>
+                        <div class="skill-category">Design</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Creative Direction</div>
+                        <div class="skill-category">Strategy</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact CTA Section -->
+            <section class="about-section">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="about-content">
+                    <p>
+                        I'm always excited to collaborate on new projects or discuss creative ideas.
+                        Whether you have a specific project in mind or just want to chat about design and technology,
+                        feel free to reach out.
+                    </p>
+                    <p>
+                        <a href="index.html#contact" class="nav-cta" style="display: inline-block; margin-top: 16px;">
+                            Get in Touch
+                        </a>
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+</CodeContent>
+<parameter name="EmptyFile">false
