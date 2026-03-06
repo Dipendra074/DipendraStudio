@@ -421,8 +421,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     videoCards.forEach(card => {
         card.addEventListener('click', () => {
+            const videoUrl = card.dataset.videoUrl;
             const videoId = card.dataset.videoId;
-            if (videoId) openModal(videoId);
+            // If a direct URL is set, open in new tab (best for Shorts)
+            if (videoUrl) {
+                window.open(videoUrl, '_blank');
+            } else if (videoId) {
+                openModal(videoId);
+            }
         });
     });
 
