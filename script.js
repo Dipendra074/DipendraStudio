@@ -511,3 +511,85 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+/**
+ * Background Text GSAP Wave Stretch Animation
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const chars = document.querySelectorAll('.bg-typography .char');
+    if (chars.length === 0) return;
+
+    // Initial entrance fade-in and slide up
+    gsap.from(chars, {
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        stagger: 0.05,
+        ease: "power3.out"
+    });
+});
+
+/**
+ * Navbar Menu Entrance Animation
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelector('.nav-links');
+    if (!navLinks) return;
+
+    // Smooth drop-down entrance
+    gsap.from(navLinks, {
+        opacity: 0,
+        y: -100, // Starts 100px above
+        duration: 1.5,
+        ease: "power4.out",
+        delay: 0.2 // Wait slightly for page load
+    });
+});
+
+/**
+ * Lanyard Neon Light Toggle (Easter Egg)
+ * Isolated IIFE for vanilla JS click tracking and CSS flicker
+ */
+(function() {
+    document.addEventListener('DOMContentLoaded', () => {
+        const lanyard = document.querySelector('#card-lanyard') || document.querySelector('.card-lanyard');
+        const snakeBorder = document.querySelector('.snake-border');
+        
+        if (!lanyard || !snakeBorder) return;
+        
+        lanyard.style.cursor = 'pointer';
+
+        let clicks = 0;
+        let clickTimeout;
+        let isLightOn = true; // Default state is ON via CSS without any extra classes
+
+        lanyard.addEventListener('click', () => {
+            clicks++;
+            
+            if (clicks === 1) {
+                // Strict 1-second window starting from the very first click
+                clickTimeout = setTimeout(() => {
+                    clicks = 0;
+                }, 1000);
+            }
+
+            if (clicks === 3) {
+                clicks = 0;
+                clearTimeout(clickTimeout); // Success, clear the strict timer
+                isLightOn = !isLightOn;
+
+                // Remove classes to trigger reflow and restart animation cleanly
+                snakeBorder.classList.remove('flicker-anim', 'glow-off');
+                void snakeBorder.offsetWidth; // Trigger DOM reflow so animation restarts
+
+                if (isLightOn) {
+                    // Turn Back On: Feverish spark/flicker effect
+                    snakeBorder.classList.add('flicker-anim');
+                } else {
+                    // Turn Off: Instantly go dark
+                    snakeBorder.classList.add('glow-off');
+                }
+            }
+        });
+    });
+})();
