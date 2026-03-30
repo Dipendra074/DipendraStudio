@@ -593,3 +593,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 })();
+
+/**
+ * Contact Form AJAX Submission
+ * Handles Formspree submission smoothly without redirecting the user
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = 'Sending...';
+        submitBtn.style.opacity = '0.7';
+        submitBtn.style.cursor = 'not-allowed';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Success state
+                submitBtn.innerHTML = 'Message Sent! ✓';
+                submitBtn.style.backgroundColor = '#10b981'; // Success green
+                submitBtn.style.borderColor = '#10b981';
+                contactForm.reset();
+                
+                // Reset button after 4 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.style.backgroundColor = '';
+                    submitBtn.style.borderColor = '';
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                    submitBtn.disabled = false;
+                }, 4000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            // Error state
+            submitBtn.innerHTML = 'Error! Try Again.';
+            submitBtn.style.backgroundColor = '#ef4444'; // Error red
+            submitBtn.style.borderColor = '#ef4444';
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.style.backgroundColor = '';
+                submitBtn.style.borderColor = '';
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+                submitBtn.disabled = false;
+            }, 4000);
+        }
+    });
+});
