@@ -550,13 +550,13 @@ document.addEventListener('DOMContentLoaded', () => {
  * Lanyard Neon Light Toggle (Easter Egg)
  * Isolated IIFE for vanilla JS click tracking and CSS flicker
  */
-(function() {
+(function () {
     document.addEventListener('DOMContentLoaded', () => {
         const lanyard = document.querySelector('#card-lanyard') || document.querySelector('.card-lanyard');
         const snakeBorder = document.querySelector('.snake-border');
-        
+
         if (!lanyard || !snakeBorder) return;
-        
+
         lanyard.style.cursor = 'pointer';
 
         let clicks = 0;
@@ -565,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         lanyard.addEventListener('click', () => {
             clicks++;
-            
+
             if (clicks === 1) {
                 // Strict 1-second window starting from the very first click
                 clickTimeout = setTimeout(() => {
@@ -604,10 +604,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalBtnText = submitBtn.innerHTML;
-        
+
         // Show loading state
         submitBtn.innerHTML = 'Sending...';
         submitBtn.style.opacity = '0.7';
@@ -629,7 +629,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.style.backgroundColor = '#10b981'; // Success green
                 submitBtn.style.borderColor = '#10b981';
                 contactForm.reset();
-                
+
                 // Reset button after 4 seconds
                 setTimeout(() => {
                     submitBtn.innerHTML = originalBtnText;
@@ -647,7 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerHTML = 'Error! Try Again.';
             submitBtn.style.backgroundColor = '#ef4444'; // Error red
             submitBtn.style.borderColor = '#ef4444';
-            
+
             setTimeout(() => {
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.style.backgroundColor = '';
@@ -659,3 +659,196 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+/**
+ * Glass Dock — Vanilla JS
+ * Icon hover scale + lift, and floating tooltip
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const dock = document.getElementById('glassDock');
+    const tooltip = document.getElementById('dockTooltip');
+    const tooltipText = document.getElementById('dockTooltipText');
+
+    if (!dock || !tooltip || !tooltipText) return;
+
+    const dockItems = dock.querySelectorAll('.dock-item');
+
+    dockItems.forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+            // Scale + lift the icon
+            item.style.transform = 'scale(1.3) translateY(-4px)';
+            item.style.color = '#ffffff';
+
+            // Update tooltip text
+            const title = item.getAttribute('data-title') || '';
+            tooltipText.textContent = title;
+
+            // Position tooltip centered above the hovered icon
+            const itemRect = item.getBoundingClientRect();
+            const dockRect = dock.getBoundingClientRect();
+            const tooltipWidth = tooltip.offsetWidth;
+            const itemCenterX = (itemRect.left - dockRect.left) + (itemRect.width / 2);
+            const tooltipX = itemCenterX - (tooltipWidth / 2);
+
+            tooltip.style.left = tooltipX + 'px';
+
+            // Show tooltip
+            tooltip.classList.add('visible');
+        });
+
+        item.addEventListener('mouseleave', () => {
+            // Reset icon
+            item.style.transform = 'scale(1) translateY(0)';
+            item.style.color = '';
+
+            // Hide tooltip
+            tooltip.classList.remove('visible');
+        });
+    });
+
+    // Also hide tooltip when leaving the entire dock
+    dock.addEventListener('mouseleave', () => {
+        tooltip.classList.remove('visible');
+        dockItems.forEach((item) => {
+            item.style.transform = 'scale(1) translateY(0)';
+            item.style.color = '';
+        });
+    });
+});
+
+/**
+ * Animated Light Lines — requestAnimationFrame
+ * Green light trails (#00ff88) move up and down along vertical lines
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('lightLinesContainer');
+    if (!container) return;
+
+    // Clamp the light lines to end at the bottom of the projects section
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+        const setContainerHeight = () => {
+            const projectsBottom = projectsSection.offsetTop + projectsSection.offsetHeight;
+            container.style.height = projectsBottom + 'px';
+        };
+        setContainerHeight();
+        window.addEventListener('resize', setContainerHeight);
+    }
+
+    // Lights moving DOWN
+    const lightsDown = [
+        '.light4', '.light5', '.light6', '.light7', '.light8',
+        '.light11', '.light12', '.light13', '.light14', '.light15', '.light16'
+    ];
+    // Lights moving UP
+    const lightsUp = [
+        '.light1', '.light2', '.light3', '.light9', '.light10', '.light17'
+    ];
+
+    const allLightDefs = [
+        ...lightsDown.map(sel => ({ selector: sel, from: -1080, to: 1080 })),
+        ...lightsUp.map(sel => ({ selector: sel, from: 1080, to: -1080 }))
+    ];
+
+    const animations = allLightDefs.map(def => {
+        const element = container.querySelector(def.selector);
+        const duration = (Math.floor(Math.random() * 59) + 2) * 0.5 + 0.5;
+        return { element, from: def.from, to: def.to, duration };
+    });
+
+    const animState = animations.map(() => ({
+        startTime: performance.now() - Math.random() * 5000
+    }));
+
+    let frameId;
+
+    function animateLightLines(time) {
+        for (let i = 0; i < animations.length; i++) {
+            const anim = animations[i];
+            if (!anim.element) continue;
+            const elapsed = (time - animState[i].startTime) / 1000;
+            const progress = (elapsed % anim.duration) / anim.duration;
+            const currentY = anim.from + (anim.to - anim.from) * progress;
+            anim.element.style.transform = 'translateY(' + currentY + 'px)';
+        }
+        frameId = requestAnimationFrame(animateLightLines);
+    }
+
+    frameId = requestAnimationFrame(animateLightLines);
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (frameId) cancelAnimationFrame(frameId);
+        } else {
+            const now = performance.now();
+            for (let i = 0; i < animState.length; i++) {
+                animState[i].startTime = now - Math.random() * 5000;
+            }
+            frameId = requestAnimationFrame(animateLightLines);
+        }
+    });
+});
+
+/**
+ * Image Lightbox Modal
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('imageLightbox');
+    if (!lightbox) return;
+
+    const lightboxImg = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+    const lightboxCloseBtn = document.getElementById('lightboxClose');
+    
+    // Select all project cards except video cards
+    const projectCards = document.querySelectorAll('.project-card:not(.video-card)');
+
+    projectCards.forEach(card => {
+        // Change cursor to indicate double-clickability
+        card.setAttribute('title', 'Double-click to view full image');
+
+        card.addEventListener('dblclick', () => {
+            // Extract data from the clicked card
+            const imgElement = card.querySelector('.project-thumbnail img');
+            const titleElement = card.querySelector('.project-title');
+            const descElement = card.querySelector('.project-desc');
+            
+            if (imgElement) lightboxImg.src = imgElement.src;
+            if (titleElement) lightboxTitle.textContent = titleElement.textContent;
+            if (descElement) lightboxDesc.textContent = descElement.textContent;
+            
+            // Show lightbox
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+    });
+
+    // Function to close lightbox
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            // Clear image source after fade out to avoid flashing wrong image next time
+            lightboxImg.src = '';
+        }, 300); // 300ms matches the CSS opacity transition duration
+    };
+
+    // Close on button click
+    lightboxCloseBtn.addEventListener('click', closeLightbox);
+
+    // Close on outside click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
+            closeLightbox();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+});
+

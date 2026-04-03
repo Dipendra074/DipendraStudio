@@ -1,0 +1,26 @@
+{
+  "name": "dipendrastudio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "floating-tools.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dipendra074/DipendraStudio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Dipendra074/DipendraStudio/issues"
+  },
+  "homepage": "https://github.com/Dipendra074/DipendraStudio#readme",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.38.0",
+    "tailwind-merge": "^3.5.0"
+  }
+}
